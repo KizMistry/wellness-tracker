@@ -41,7 +41,7 @@ const MoodHistory = ({ userId, triggerRefresh, range, customRange }) => {
     ) {
       fetchMoods();
     }
-  }, [userId, triggerRefresh, range, customRange]);
+  }, [userId, triggerRefresh, range, customRange, API_BASE]);
 
   useEffect(() => {
     if (newestMoodRef.current) {

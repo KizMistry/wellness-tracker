@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { moodOptions } from "../constants/moodOptions";
-
 
 const MoodForm = ({ userId, onMoodSubmitted }) => {
   const [selectedMood, setSelectedMood] = useState(null);
-  const [customMood, setCustomMood] = useState('');
-  const [message, setMessage] = useState('');
-  const [note, setNote] = useState('');
-
+  const [customMood, setCustomMood] = useState("");
+  const [message, setMessage] = useState("");
+  const [note, setNote] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,23 +20,20 @@ const MoodForm = ({ userId, onMoodSubmitted }) => {
 
     try {
       const response = await fetch(`${API_BASE}/moods`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: userId, mood: moodToSubmit, note }),
       });
 
       if (response.ok) {
-        const data = await response.json();
-        setMessage(`✅ Mood logged!
-          `// Mood ID: ${data.id}
-            );
+        setMessage(`Mood logged! ✅`);
         setSelectedMood(null);
-        setCustomMood('');
+        setCustomMood("");
         onMoodSubmitted();
-        setNote('');
+        setNote("");
       } else {
         const err = await response.json();
-        setMessage(`❌ Error: ${err.message || 'Failed to log mood.'}`);
+        setMessage(`❌ Error: ${err.message || "Failed to log mood."}`);
       }
     } catch (error) {
       console.error(error);
@@ -57,7 +52,7 @@ const MoodForm = ({ userId, onMoodSubmitted }) => {
               key={index}
               type="button"
               className={`mood-btn ${
-                selectedMood?.label === m.label ? 'selected' : ''
+                selectedMood?.label === m.label ? "selected" : ""
               }`}
               onClick={() => setSelectedMood(m)}
             >
@@ -73,17 +68,16 @@ const MoodForm = ({ userId, onMoodSubmitted }) => {
           onChange={(e) => setCustomMood(e.target.value)}
           placeholder="Type a custom mood..."
         />
-        <label className="block mb-1 text-sm font-medium">Add a note (optional):</label>
-  <textarea
-    value={note}
-    onChange={(e) => setNote(e.target.value)}
-    className="w-full p-2 border rounded"
-    placeholder="Write anything about how you feel..."
-  />
-        <div>
-  
-</div>
-
+        <label className="block mb-1 text-sm font-medium">
+          Add a note (optional):
+        </label>
+        <textarea
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          className="w-full p-2 border rounded"
+          placeholder="Write anything about how you feel..."
+        />
+        <div></div>
 
         <button type="submit" className="submit-btn">
           Submit Mood

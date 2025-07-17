@@ -43,7 +43,7 @@ const MoodChart = ({ userId, triggerRefresh, range, customRange }) => {
     ) {
       fetchStats();
     }
-  }, [userId, triggerRefresh, range, customRange]);
+  }, [userId, triggerRefresh, range, customRange, API_BASE]);
 
   if (data.length === 0) return null;
 
