@@ -7,7 +7,7 @@ services:
     startCommand: "flask run --host=0.0.0.0 --port=10000"
     envVars:
       - key: DATABASE_URL
-        value: YOUR_POSTGRES_DB_URL
+        value: postgresql://wellness_db_z1zs_user:WKdrazzRdg2CIA8sU0m6WZXGBhX8Y6SM@dpg-d1rtbj2dbo4c738j9f70-a/wellness_db_z1zs
       - key: FLASK_ENV
         value: production
       - key: FLASK_APP
