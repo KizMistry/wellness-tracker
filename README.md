@@ -10,7 +10,7 @@ This project showcases **frontend (React + Tailwind)**, **backend (Flask + SQLAl
 
 - **Frontend:** [https://wellness-tracker-app.netlify.app/](https://wellness-tracker-app.netlify.app/)
 - **Backend API:** [https://wellness-tracker-a0qm.onrender.com/](https://wellness-tracker-a0qm.onrender.com/)  
-  *(Note: The backend API itself is not meant for direct browsing — it powers the frontend with endpoints for logging moods, analytics, and CSV exports.)*
+  *(Note: The backend API itself is not meant for direct browsing; it powers the frontend with endpoints for logging moods, analytics, and CSV exports.)*
 
 ---
 
@@ -62,29 +62,29 @@ Clone the repo and run locally:
 ```bash
 git clone https://github.com/KizMistry/wellness-tracker.git
 cd wellness-tracker
-
-### Frontend
-```bash
+```
+### Frontend:
+```
 cd frontend
 npm install
 npm start
-
-### Backend
-```bash
+```
+### Backend:
+```
 cd backend
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-
+```
 ### Set up your .env file:
-
+```
 DATABASE_URL=your_postgres_url_here
-
+```
 ### Run migrations and start the backend:
-```bash
+```
 flask db upgrade
 flask run
-
+```
 ## 🧠 Why I Built This
 This project demonstrates:
 
