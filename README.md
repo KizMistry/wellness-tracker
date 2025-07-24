@@ -51,7 +51,26 @@ This project showcases **frontend (React + Tailwind)**, **backend (Flask + SQLAl
 
 ## 📊 Screenshots
 
+### Mood Form
+![Mood Form Screenshot](./frontend/public/screenshots/MoodForm.png)
 
+### Mood Chart
+![Mood Chart Screenshot](./frontend/public/screenshots/ChartData.png)
+
+### Data Trendline 
+![Data Trendline Screenshot](./frontend/public/screenshots/DataTrendline.png)
+
+### Data History 
+![Data History Screenshot](./frontend/public/screenshots/DataHistory.png)
+
+### Data Summary 
+![Data Summary Screenshot](./frontend/public/screenshots/SummaryCard.png)
+
+### Filter Data Option 
+![Filter Option Screenshot](./frontend/public/screenshots/FilterOption.png)
+
+### CSV Export 
+![CSV Export Screenshot](./frontend/public/screenshots/CSVExport.png)
 
 ---
 
