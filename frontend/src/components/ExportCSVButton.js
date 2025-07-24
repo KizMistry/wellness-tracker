@@ -7,7 +7,6 @@ const ExportCSVButton = ({ userId, range, customRange }) => {
   const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
   const handleExport = () => {
-    // Always explicitly send range=all for clarity
     const url = `${API_BASE}/export-csv?user_id=${userId}&range=all`;
     window.open(url, "_blank");
   };
