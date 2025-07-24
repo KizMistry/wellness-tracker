@@ -98,10 +98,14 @@ function App() {
           </>
         ) : (
           <div className="bg-white shadow-md rounded-xl p-6 space-y-8">
+            <h1 className="header-title">
+                <span className="emoji">🌤️</span>
+                Mood Tracker
+            </h1>
             <div>
-              <h1 className="text-2xl font-bold mb-4 text-center text-gray-800">
+              <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
                 Login to Continue
-              </h1>
+              </h2>
               <LoginForm onLogin={handleLogin} />
             </div>
 
