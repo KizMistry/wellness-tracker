@@ -101,7 +101,7 @@ function App() {
             <h1 className="header-title">
                 <span className="emoji">🌤️</span>
                 Mood Tracker
-            </h1>
+              </h1>
             <div>
               <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
                 Login to Continue

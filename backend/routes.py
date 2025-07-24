@@ -95,25 +95,7 @@ def get_mood_stats():
     mood_counts = Counter([mood.mood.lower() for mood in moods])
 
     return jsonify(mood_counts)
-# @routes.route('/mood-stats', methods=['GET'])
-# def get_mood_stats():
-#     user_id = request.args.get('user_id', type=int)
-#     if not user_id:
-#         return jsonify({'message': 'Missing user_id'}), 400
 
-#     moods = Mood.query.filter_by(user_id=user_id).all()
-#     mood_counts = Counter([mood.mood.lower() for mood in moods])
-
-#     return jsonify(mood_counts)
-
-# Post users Mood
-# @routes.route('/moods', methods=['POST'])
-# def create_mood():
-#     data = request.get_json()
-#     new_mood = Mood(mood=data['mood'], user_id=data['user_id'])
-#     db.session.add(new_mood)
-#     db.session.commit()
-#     return jsonify({'message': 'Mood logged', 'id': new_mood.id}), 201
 @routes.route('/moods', methods=['POST'])
 def create_mood():
     data = request.get_json()
@@ -195,20 +177,7 @@ def get_moods():
             "timestamp": mood.timestamp.strftime("%Y-%m-%d %H:%M:%S")
         } for mood in moods
     ])
-    # try:
-    #     moods = Mood.query.filter_by(user_id=user_id).order_by(Mood.timestamp.desc()).all()
-    #     return jsonify([
-    #         {
-    #             "id": mood.id,
-    #             "mood": mood.mood,
-    #             "note": mood.note,
-    #             "timestamp": mood.timestamp.strftime("%Y-%m-%d %H:%M:%S")
-    #         } for mood in moods
-    #     ])
-    # except Exception as e:
-    #     print(e)
-    #     return jsonify({"error": "Failed to fetch moods"}), 500
-    
+
 
     
 # Update Mood
@@ -291,30 +260,3 @@ def export_csv():
         mimetype="text/csv",
         headers={"Content-Disposition": f"attachment; filename=mood_history_user_{user_id}.csv"}
     )
-
-# @routes.route('/export-csv', methods=['GET'])
-# def export_csv():
-#     user_id = request.args.get('user_id')
-#     range_option = request.args.get('range', 'all')
-#     start = request.args.get('start')
-#     end = request.args.get('end')
-
-#     if not user_id:
-#         return {"error": "Missing user_id"}, 400
-
-#     moods = Mood.query.filter_by(user_id=user_id).order_by(Mood.timestamp.desc()).all()
-
-#     si = StringIO()
-#     cw = csv.writer(si)
-#     cw.writerow(['id', 'mood', 'note', 'timestamp'])
-
-#     for mood in moods:
-#         cw.writerow([mood.id, mood.mood, mood.note or '', mood.timestamp])
-
-#     output = si.getvalue()
-
-#     return Response(
-#         output,
-#         mimetype="text/csv",
-#         headers={"Content-Disposition": f"attachment; filename=mood_history_user_{user_id}.csv"}
-#     )

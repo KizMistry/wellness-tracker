@@ -1,9 +1,9 @@
-// LoginForm.js
 import React, { useState } from "react";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ function LoginForm({ onLogin }) {
     if (response.ok) {
       const data = await response.json();
       if (data.user && data.user.id) {
-        onLogin(data.user); // <== pass the full user object to App
+        onLogin(data.user);
       } else {
         alert("Login successful, but no user data returned.");
       }
@@ -45,13 +45,22 @@ function LoginForm({ onLogin }) {
 
       <div>
         <label className="block font-medium text-gray-700">Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="input-field"
-          required
-        />
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="input-field pr-16"
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm text-gray-600 hover:text-gray-800"
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
+        </div>
       </div>
 
       <button
