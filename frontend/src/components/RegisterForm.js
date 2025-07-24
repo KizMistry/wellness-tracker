@@ -15,7 +15,7 @@ export default function RegisterForm() {
       body: JSON.stringify({ username, password }),
     });
 
-    const data = await res.json();
+  
     if (res.ok) {
       setMsg(
         "✅ Registered successfully! You can now log in with these credentials."
