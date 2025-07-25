@@ -1,15 +1,19 @@
 import React, { useState } from "react";
+import LoadingModal from "./LoadingModal";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
+    try {
     const response = await fetch(`${API_BASE}/login`, {
       method: "POST",
       headers: {
@@ -28,6 +32,9 @@ function LoginForm({ onLogin }) {
     } else {
       alert("Invalid username or password");
     }
+  } finally {
+    setLoading(false);
+  }
   };
 
   return (
@@ -69,6 +76,7 @@ function LoginForm({ onLogin }) {
       >
         Login
       </button>
+      <LoadingModal show={loading} />
     </form>
   );
 }
