@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 
 const moodScoreMap = {
   angry: 1,
-  disappointed: 2,
-  anxious: 3,
+  sad: 2,
+  worried: 3,
   tired: 4,
   neutral: 5,
-  sad: 6,
-  happy: 7,
-  excited: 8,
+  content: 6,
+  motivated: 7,
+  happy: 8,
+  ecstatic: 9,
 };
 
 const MoodSummary = ({ userId, range, customRange, triggerRefresh }) => {

@@ -11,13 +11,14 @@ import {
 
 const moodScoreMap = {
   angry: 1,
-  disappointed: 2,
-  anxious: 3,
+  sad: 2,
+  worried: 3,
   tired: 4,
   neutral: 5,
-  sad: 6,
-  happy: 7,
-  excited: 8,
+  content: 6,
+  motivated: 7,
+  happy: 8,
+  ecstatic: 9,
 };
 
 const MoodTrendline = ({ userId, triggerRefresh, range, customRange }) => {
@@ -73,7 +74,7 @@ const MoodTrendline = ({ userId, triggerRefresh, range, customRange }) => {
             interval="preserveStartEnd"
             minTickGap={20}
           />
-          <YAxis domain={[0, 8]} ticks={[1, 2, 3, 4, 5, 6, 7, 8]} />
+          <YAxis domain={[0, 9]} ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />
           <Tooltip
             formatter={(value, name, props) => [
               `${value} (${props.payload.label})`,

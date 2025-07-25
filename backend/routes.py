@@ -125,14 +125,14 @@ def mood_trend():
     moods = Mood.query.filter(Mood.user_id == user_id, Mood.timestamp >= start_date).order_by(Mood.timestamp.asc()).all()
 
     MOOD_SCORES = {
-        "ecstatic": 5, "happy": 4, "neutral": 3,
-        "sad": 2, "anxious": 1, "angry": 1
+        "ecstatic": 9, "happy": 8, "motivated": 7, "content": 6, "neutral": 5,
+        "tired": 4, "worried": 3, "sad": 2, "angry": 1
     }
 
     mood_data = [
         {
             "date": mood.timestamp.strftime("%Y-%m-%d"),
-            "score": MOOD_SCORES.get(mood.mood.lower(), 3)
+            "score": MOOD_SCORES.get(mood.mood.lower(), 5)
         }
         for mood in moods
     ]

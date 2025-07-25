@@ -20,6 +20,7 @@ class Mood(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     mood = db.Column(db.String(50), nullable=False)
     note = db.Column(db.Text, nullable=True)
+    score = db.Column(db.Integer, nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 

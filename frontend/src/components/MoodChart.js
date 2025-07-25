@@ -55,7 +55,7 @@ const MoodChart = ({ userId, triggerRefresh, range, customRange }) => {
       <ResponsiveContainer width="100%" height={300}>
   <BarChart
     data={data}
-    margin={{ top: 10, right: 20, left: 0, bottom: 30 }} // key part
+    margin={{ top: 10, right: 20, left: 0, bottom: 30 }} 
   >
     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
     <XAxis
@@ -65,7 +65,7 @@ const MoodChart = ({ userId, triggerRefresh, range, customRange }) => {
         angle: -55,
         dy: 15,
         fontSize: 12,
-        fill: "#374151", // Tailwind gray-700
+        fill: "#374151", 
       }}
       height={70}
     />
